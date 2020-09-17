@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { randomBytes } = require('crypto');
+const cors = require('cors');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 // Object for holding comments
 const commentsByPostId = {};
@@ -28,6 +30,6 @@ app.post('/posts/:id/comments', (req, res) => {
     res.status(201).send(comments);
 });
 
-app.listen(4000, () => {
-    console.log('listening on port 4000')
+app.listen(4001, () => {
+    console.log('listening on port 4001')
 });
