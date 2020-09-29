@@ -3,6 +3,12 @@ import React from 'react';
 export default ({ comments }) => {
     const renderedComments = comments
         .map(comment => {
+            let content;
+
+            if(comment.status === 'approved'){
+                comment = comment.content;
+            }
+
             return <li key={comment.id}>
                 {comment.content}
             </li>
